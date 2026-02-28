@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denise | 6-Month Transformation Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f0f0f;
+  --surface: #1a1a1a;
+  --surface2: #222222;
+  --border: #2e2e2e;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --red: #e05252;
+  --green: #4caf7d;
+  --blue: #5b9bd5;
+  --purple: #9b72cf;
+  --orange: #e07a52;
+  --text: #f0ece4;
+  --text-muted: #8a8582;
+  --text-dim: #5a5552;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* HEADER */
+.hero {
+  background: linear-gradient(135deg, #1a1508 0%, #0f0f0f 50%, #0a1020 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 32px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 36px;
+  color: var(--gold-light);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+.hero-subtitle { color: var(--text-muted); font-size: 13px; margin-top: 6px; letter-spacing: 1px; text-transform: uppercase; }
+.hero-stats {
+  display: flex; gap: 24px; margin-top: 24px; flex-wrap: wrap;
+}
+.stat-pill {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 500;
+}
+.overall-progress {
+  margin-top: 20px;
+  display: flex; align-items: center; gap: 14px;
+}
+.progress-bar-bg {
+  flex: 1; height: 6px; background: var(--border); border-radius: 3px; max-width: 400px;
+}
+.progress-bar-fill {
+  height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 3px; transition: width 0.5s ease;
+}
+.progress-label { font-size: 12px; color: var(--text-muted); }
+
+/* NAV */
+.nav {
+  display: flex; gap: 2px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav-btn {
+  background: none; border: none; cursor: pointer;
+  padding: 14px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 500;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.nav-btn:hover { color: var(--text); }
+.nav-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* MAIN */
+.main { padding: 24px 24px; max-width: 1100px; margin: 0 auto; }
+
+/* PHASE SECTIONS */
+.phase-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 20px; flex-wrap: wrap; gap: 12px;
+}
+.phase-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px;
+  color: var(--text);
+}
+.phase-tag {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; padding: 4px 12px;
+  border-radius: 20px; border: 1px solid;
+}
+.phase-desc {
+  color: var(--text-muted); font-size: 13px;
+  max-width: 680px; margin-bottom: 20px; line-height: 1.7;
+}
+
+/* MACRO BOX */
+.macro-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px; margin-bottom: 24px;
+}
+.macro-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.macro-card .label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
+.macro-card .value { font-size: 22px; font-weight: 600; font-family: 'DM Serif Display', serif; }
+.macro-card .sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+/* WEEK TABLE */
+.week-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.week-label {
+  padding: 12px 18px;
+  font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.week-counter { font-size: 11px; font-weight: 400; color: var(--text-muted); }
+
+table { width: 100%; border-collapse: collapse; }
+thead th {
+  padding: 10px 14px;
+  font-size: 10px; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--text-dim);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+tbody tr { border-bottom: 1px solid rgba(255,255,255,0.03); transition: background 0.15s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: rgba(255,255,255,0.02); }
+tbody tr.done { opacity: 0.35; }
+tbody tr.done td:nth-child(2) { text-decoration: line-through; }
+td { padding: 11px 14px; vertical-align: top; font-size: 13px; }
+td:first-child { width: 40px; text-align: center; }
+
+input[type="checkbox"] {
+  width: 16px; height: 16px; cursor: pointer;
+  accent-color: var(--gold);
+}
+
+.badge {
+  display: inline-block; padding: 2px 8px;
+  border-radius: 4px; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.5px; white-space: nowrap; margin-right: 4px;
+}
+.b-spin { background: rgba(91,155,213,0.15); color: #7db8e8; border: 1px solid rgba(91,155,213,0.25); }
+.b-weights { background: rgba(201,168,76,0.12); color: var(--gold); border: 1px solid rgba(201,168,76,0.25); }
+.b-walk { background: rgba(76,175,125,0.12); color: #6fd4a0; border: 1px solid rgba(76,175,125,0.25); }
+.b-run { background: rgba(224,122,82,0.12); color: #f0a07a; border: 1px solid rgba(224,122,82,0.25); }
+.b-rest { background: rgba(100,100,100,0.1); color: #888; border: 1px solid rgba(100,100,100,0.2); }
+.b-review { background: rgba(155,114,207,0.12); color: #bb99ef; border: 1px solid rgba(155,114,207,0.25); }
+
+/* REVIEW BOXES */
+.review-box {
+  background: rgba(155,114,207,0.06);
+  border: 1px solid rgba(155,114,207,0.25);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin: 16px 0;
+}
+.review-box h4 {
+  font-family: 'DM Serif Display', serif;
+  color: #bb99ef; font-size: 16px; margin-bottom: 10px;
+}
+.review-box ul { list-style: none; }
+.review-box li {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 5px 0; font-size: 13px; color: var(--text-muted);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.review-box li:last-child { border-bottom: none; }
+.review-box li input { margin-top: 2px; flex-shrink: 0; }
+
+/* MEAL SECTION */
+.meal-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px; margin-bottom: 20px;
+}
+.meal-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.meal-card .meal-time { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 4px; }
+.meal-card .meal-name { font-weight: 600; color: var(--text); margin-bottom: 8px; font-size: 14px; }
+.meal-card .meal-items { font-size: 12px; color: var(--text-muted); line-height: 1.8; }
+.meal-card .meal-macros { font-size: 11px; color: var(--text-dim); margin-top: 8px; border-top: 1px solid var(--border); padding-top: 8px; }
+
+/* INFO PANELS */
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.info-card {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 16px;
+}
+.info-card h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px; }
+.info-card p, .info-card li { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+.info-card ul { list-style: none; padding: 0; }
+.info-card li::before { content: "→ "; color: var(--gold); }
+
+.section { display: none; }
+.section.active { display: block; }
+
+/* PHASE COLORS */
+.p1 { --phase-color: #5b9bd5; }
+.p2 { --phase-color: #c9a84c; }
+.p3 { --phase-color: #e05252; }
+.p4 { --phase-color: #4caf7d; }
+.p5 { --phase-color: #9b72cf; }
+.p6 { --phase-color: #e07a52; }
+
+.phase-tag { border-color: var(--phase-color); color: var(--phase-color); }
+.week-label { color: var(--phase-color); }
+
+.note { font-size: 12px; color: var(--text-dim); font-style: italic; margin-top: 4px; }
+
+hr.divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-title">6-Month Transformation Plan</div>
+  <div class="hero-subtitle">Strength · Cardio · Nutrition · Recovery</div>
+  <div class="hero-stats">
+    <div class="stat-pill">👤 Female · 220 lbs · 5'8"</div>
+    <div class="stat-pill">🎯 Lean Muscle + Fat Loss</div>
+    <div class="stat-pill">📅 5 Training Days/Week</div>
+    <div class="stat-pill">🔄 Post-Surgery Month 3</div>
+    <div class="stat-pill">⚡ ~1,850 kcal/day</div>
+  </div>
+  <div class="overall-progress">
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="overall-fill" style="width:0%"></div></div>
+    <div class="progress-label" id="overall-label">0 / 156 sessions complete</div>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="showSection('overview')">Overview</button>
+  <button class="nav-btn" onclick="showSection('nutrition')">🥗 Nutrition</button>
+  <button class="nav-btn" onclick="showSection('phase1')">Phase 1</button>
+  <button class="nav-btn" onclick="showSection('phase2')">Phase 2</button>
+  <button class="nav-btn" onclick="showSection('phase3')">Phase 3</button>
+  <button class="nav-btn" onclick="showSection('phase4')">Phase 4</button>
+  <button class="nav-btn" onclick="showSection('phase5')">Phase 5</button>
+  <button class="nav-btn" onclick="showSection('phase6')">Phase 6</button>
+</div>
+
+<div class="main">
+
+<!-- ======================== OVERVIEW ======================== -->
+<div id="overview" class="section active">
+  <div class="phase-header">
+    <div>
+      <div class="phase-title">Your 6-Month Blueprint</div>
+      <div class="phase-desc">This plan is built around one core principle: <em>build muscle first, fat loss follows.</em> Every phase progressively increases intensity, shifts macros, and builds on the previous month. You have muscle memory from your past training — your body will respond faster than a true beginner. Trust the process.</div>
+    </div>
+  </div>
+
+  <div class="macro-grid">
+    <div class="macro-card">
+      <div class="label">Starting Calories</div>
+      <div class="value" style="color:var(--gold)">1,850</div>
+      <div class="sub">kcal/day · moderate deficit</div>
+    </div>
+    <div class="macro-card">
+      <div class="label">Protein Target</div>
+      <div class="value" style="color:#7db8e8">155g</div>
+      <div class="sub">~0.7g per lb bodyweight</div>
+    </div>
+    <div class="macro-card">
+      <div class="label">Carbohydrates</div>
+      <div class="value" style="color:#6fd4a0">175g</div>
+      <div class="sub">fuel for training</div>
+    </div>
+    <div class="macro-card">
+      <div class="label">Fats</div>
+      <div class="value" style="color:#f0a07a">62g</div>
+      <div class="sub">hormones + recovery</div>
+    </div>
+    <div class="macro-card">
+      <div class="label">Est. Weight Loss</div>
+      <div class="value" style="color:#bb99ef">25–35</div>
+      <div class="sub">lbs over 6 months</div>
+    </div>
+    <div class="macro-card">
+      <div class="label">Hydration</div>
+      <div class="value" style="color:#5b9bd5">3–4L</div>
+      <div class="sub">water daily minimum</div>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h4>Phase Roadmap</h4>
+      <ul>
+        <li><strong style="color:var(--blue)">Month 1:</strong> Foundation — relearn movement, establish habits</li>
+        <li><strong style="color:var(--gold)">Month 2:</strong> Build — increase load, add spinning intervals</li>
+        <li><strong style="color:var(--red)">Month 3:</strong> Strength — heavier weights, introduce running</li>
+        <li><strong style="color:var(--green)">Month 4:</strong> Peak Burn — HIIT, advanced compound lifts</li>
+        <li><strong style="color:var(--purple)">Month 5:</strong> Recomposition — body sculpting, macro shift</li>
+        <li><strong style="color:var(--orange)">Month 6:</strong> Performance — test limits, consolidate gains</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Core Training Split</h4>
+      <ul>
+        <li>Day 1: Lower Body (Glutes, Quads, Hamstrings)</li>
+        <li>Day 2: Spinning (Cardio + Fat Burn)</li>
+        <li>Day 3: Upper Body (Back, Chest, Shoulders, Arms)</li>
+        <li>Day 4: Walk/Run (Active Cardio)</li>
+        <li>Day 5: Full Body Compound + Core</li>
+        <li>Day 6–7: Rest / Light walk (optional)</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Abdominal Protocol</h4>
+      <ul>
+        <li>Months 1–2: NO direct ab work. Bracing only.</li>
+        <li>Month 3: Begin gentle core activation (dead bugs, bird dogs)</li>
+        <li>Month 4: Add planks, modified crunches</li>
+        <li>Month 5–6: Full core work as tolerated</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Review Checkpoints</h4>
+      <ul>
+        <li>Every 2 weeks: measure weight + energy levels</li>
+        <li>Every month: review macros, increase weights</li>
+        <li>Month 3: full reassessment (macros, volume, cardio)</li>
+        <li>Month 6: final performance test + next plan</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-card" style="margin-bottom:20px">
+    <h4>Non-Negotiables Every Day</h4>
+    <ul>
+      <li>Protein with every single meal — no exceptions</li>
+      <li>3–4L water minimum — more on training days</li>
+      <li>7–8 hours sleep — this is when fat is metabolized and muscle is built</li>
+      <li>No skipping rest days — cortisol management = better fat loss</li>
+      <li>Log your sessions, even if brief — what gets measured gets improved</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======================== NUTRITION ======================== -->
+<div id="nutrition" class="section">
+  <div class="phase-header">
+    <div>
+      <div class="phase-title">Nutrition Framework</div>
+      <div class="phase-desc">Calculated for 220 lbs, 5'8", sedentary baseline returning to training. Your TDEE is ~2,200 kcal. We run a ~350 kcal deficit for steady fat loss without muscle loss. Protein is the anchor of every meal — it preserves muscle, keeps you full, and has the highest thermic effect (your body burns more calories digesting it).</div>
+    </div>
+  </div>
+
+  <div class="macro-grid">
+    <div class="macro-card"><div class="label">Daily Calories</div><div class="value" style="color:var(--gold)">1,850</div><div class="sub">~350 kcal deficit</div></div>
+    <div class="macro-card"><div class="label">Protein</div><div class="value" style="color:#7db8e8">155g</div><div class="sub">620 kcal · 34%</div></div>
+    <div class="macro-card"><div class="label">Carbs</div><div class="value" style="color:#6fd4a0">175g</div><div class="sub">700 kcal · 38%</div></div>
+    <div class="macro-card"><div class="label">Fats</div><div class="value" style="color:#f0a07a">62g</div><div class="sub">558 kcal · 30%</div></div>
+  </div>
+
+  <div style="font-family:'DM Serif Display',serif;font-size:20px;color:var(--text);margin-bottom:16px;">Daily Meal Structure</div>
+
+  <div class="meal-grid">
+    <div class="meal-card">
+      <div class="meal-time">6:30 – 7:30 AM · Meal 1</div>
+      <div class="meal-name">🌅 Power Breakfast</div>
+      <div class="meal-items">
+        3 whole eggs + 3 egg whites scrambled<br>
+        ½ cup oats with cinnamon<br>
+        1 cup berries<br>
+        Black coffee or green tea
+      </div>
+      <div class="meal-macros">~480 kcal · P: 38g · C: 42g · F: 16g</div>
+    </div>
+    <div class="meal-card">
+      <div class="meal-time">10:00 – 10:30 AM · Snack</div>
+      <div class="meal-name">⚡ Mid-Morning Fuel</div>
+      <div class="meal-items">
+        1 cup Greek yogurt (full fat)<br>
+        1 tbsp almond butter<br>
+        1 small apple or banana
+      </div>
+      <div class="meal-macros">~280 kcal · P: 22g · C: 28g · F: 9g</div>
+    </div>
+    <div class="meal-card">
+      <div class="meal-time">1:00 – 2:00 PM · Meal 2</div>
+      <div class="meal-name">🥗 Performance Lunch</div>
+      <div class="meal-items">
+        5 oz grilled chicken or salmon<br>
+        1 cup brown rice or quinoa<br>
+        2 cups roasted or raw veggies<br>
+        1 tbsp olive oil dressing
+      </div>
+      <div class="meal-macros">~520 kcal · P: 45g · C: 52g · F: 14g</div>
+    </div>
+    <div class="meal-card">
+      <div class="meal-time">4:00 – 5:00 PM · Pre-Training</div>
+      <div class="meal-name">🏋️ Pre-Workout Snack</div>
+      <div class="meal-items">
+        1 rice cake with 1 tbsp peanut butter<br>
+        1 medium banana<br>
+        <em class="note">(eat 60–90 min before training)</em>
+      </div>
+      <div class="meal-macros">~210 kcal · P: 6g · C: 30g · F: 8g</div>
+    </div>
+    <div class="meal-card">
+      <div class="meal-time">7:30 – 8:30 PM · Meal 3</div>
+      <div class="meal-name">🌙 Recovery Dinner</div>
+      <div class="meal-items">
+        6 oz lean protein (chicken, turkey, fish, lean beef)<br>
+        1 cup sweet potato or legumes<br>
+        Large leafy salad or steamed greens<br>
+        1 tbsp olive oil
+      </div>
+      <div class="meal-macros">~490 kcal · P: 44g · C: 38g · F: 15g</div>
+    </div>
+    <div class="meal-card">
+      <div class="meal-time">9:30 – 10:00 PM · Optional</div>
+      <div class="meal-name">🌙 Evening Protein</div>
+      <div class="meal-items">
+        1 cup cottage cheese<br>
+        or 1 scoop casein protein shake<br>
+        <em class="note">(only if hungry · slow-digesting protein feeds muscles overnight)</em>
+      </div>
+      <div class="meal-macros">~120 kcal · P: 20g · C: 6g · F: 2g</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div style="font-family:'DM Serif Display',serif;font-size:20px;color:var(--text);margin-bottom:16px;">Nutrition Rules & Strategies</div>
+  <div class="info-grid">
+    <div class="info-card">
+      <h4>Protein Sources (Prioritize)</h4>
+      <ul>
+        <li>Chicken breast, turkey breast</li>
+        <li>Salmon, tilapia, tuna, shrimp</li>
+        <li>Eggs and egg whites</li>
+        <li>Greek yogurt, cottage cheese</li>
+        <li>Lean beef (90%+ lean)</li>
+        <li>Whey or casein protein powder</li>
+        <li>Lentils, chickpeas, black beans</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Smart Carb Choices</h4>
+      <ul>
+        <li>Oats, brown rice, quinoa</li>
+        <li>Sweet potato, regular potato</li>
+        <li>Banana, berries, apple, mango</li>
+        <li>Whole grain bread (1–2 slices)</li>
+        <li>Lentils, black beans (dual: carb + protein)</li>
+        <li>Minimize: white bread, sugar, alcohol</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Healthy Fats</h4>
+      <ul>
+        <li>Avocado (½ per day)</li>
+        <li>Olive oil (cooking + dressing)</li>
+        <li>Almond butter, peanut butter (1–2 tbsp)</li>
+        <li>Walnuts, almonds (small handful)</li>
+        <li>Salmon (omega-3s + protein)</li>
+        <li>Eggs (yolks — don't fear them)</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Macro Adjustments by Month</h4>
+      <ul>
+        <li><strong style="color:var(--blue)">M1–2:</strong> 1,850 kcal · P:155 · C:175 · F:62</li>
+        <li><strong style="color:var(--gold)">M3–4:</strong> 1,800 kcal · P:165 · C:155 · F:58 (cut carbs slightly as strength builds)</li>
+        <li><strong style="color:var(--green)">M5–6:</strong> 1,750 kcal · P:175 · C:140 · F:55 (higher protein, lean out phase)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== PHASE 1 ======================== -->
+<div id="phase1" class="section p1">
+  <div class="phase-header">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+        <div class="phase-title">Phase 1 — Foundation</div>
+        <div class="phase-tag">Month 1</div>
+      </div>
+      <div class="phase-desc">Reawaken your body. Focus on form, not weight. Learn the movements. Build the habit of showing up. No ego lifting — perfect reps build the neural pathways that make everything else possible. Core: bracing only (no direct ab work). Nutrition: establish meal structure and hit protein target daily.</div>
+    </div>
+  </div>
+
+  <div class="macro-grid">
+    <div class="macro-card"><div class="label">Calories</div><div class="value" style="color:var(--gold)">1,850</div></div>
+    <div class="macro-card"><div class="label">Protein</div><div class="value" style="color:#7db8e8">155g</div></div>
+    <div class="macro-card"><div class="label">Carbs</div><div class="value" style="color:#6fd4a0">175g</div></div>
+    <div class="macro-card"><div class="label">Fats</div><div class="value" style="color:#f0a07a">62g</div></div>
+    <div class="macro-card"><div class="label">Weights Load</div><div class="value" style="color:#888">Light</div><div class="sub">12–15 reps · 3 sets</div></div>
+    <div class="macro-card"><div class="label">Spinning</div><div class="value" style="color:#7db8e8">35 min</div><div class="sub">Steady state 60–65%</div></div>
+  </div>
+
+  <!-- WEEK 1 -->
+  <div class="week-block">
+    <div class="week-label">Week 1 <span class="week-counter" id="w1c">0/5</span></div>
+    <table>
+      <thead><tr><th>✓</th><th>Day</th><th>Type</th><th>Session Detail</th></tr></thead>
+      <tbody id="w1b">
+        <tr><td><input type="checkbox" onchange="tick(this,'w1c',5)"></td><td>Monday</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Lower Body A</strong> — Goblet squat 3×15, Leg press 3×15, Romanian deadlift 3×12, Hip thrust (bodyweight) 3×15, Seated calf raise 3×15. <em class="note">Light weight. Focus on full range of motion. Brace core on every rep.</em></td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w1c',5)"></td><td>Tuesday</td><td><span class="badge b-spin">🚴 Spinning</span></td><td><strong>Intro Spin 35 min</strong> — 5 min warm-up → 25 min steady state 60–65% HR (conversational pace, 80 RPM) → 5 min cool down. <em class="note">This is aerobic base building. Do not push hard.</em></td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w1c',5)"></td><td>Wednesday</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Upper Body A</strong> — Seated dumbbell shoulder press 3×15, Lat pulldown 3×15, Seated cable row 3×15, Dumbbell chest press 3×15, Dumbbell bicep curl 3×15, Tricep pushdown 3×15. <em class="note">No heavy chest pressing — post-surgery caution month 1.</em></td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w1c',5)"></td><td>Thursday</td><td><span class="badge b-walk">🚶 Walk</span></td><td><strong>Walk 30 min</strong> — Easy flat walk. Focus on breathing and movement. Aim for 6,000–7,000 steps total today.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w1c',5)"></td><td>Friday</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Full Body A</strong> — Dumbbell deadlift 3×12, Dumbbell step-up 3×12 each leg, Single-arm row 3×12, Glute bridge 3×15, Face pull 3×15, Farmer carry 3×30 sec. <em class="note">Rest 60–90 sec between sets.</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- WEEK 2 -->
+  <div class="week-block">
+    <div class="week-label">Week 2 <span class="week-counter" id="w2c">0/5</span></div>
+    <table>
+      <thead><tr><th>✓</th><th>Day</th><th>Type</th><th>Session Detail</th></tr></thead>
+      <tbody id="w2b">
+        <tr><td><input type="checkbox" onchange="tick(this,'w2c',5)"></td><td>Monday</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Lower Body A</strong> — Same as Week 1. Add 5 lbs if Week 1 felt easy. Goblet squat, Leg press, RDL, Hip thrust, Calf raise. 3×15.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w2c',5)"></td><td>Tuesday</td><td><span class="badge b-spin">🚴 Spinning</span></td><td><strong>Spin 40 min</strong> — 5 warm-up → 30 min steady state 60–65% → 5 cool down. Increase cadence to 85 RPM if comfortable.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w2c',5)"></td><td>Wednesday</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Upper Body A</strong> — Repeat Week 1. Add 2–5 lbs where it felt easy. Focus on mind-muscle connection on every rep.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w2c',5)"></td><td>Thursday</td><td><span class="badge b-walk">🚶 Walk</span></td><td><strong>Walk 35 min</strong> — Same route. Notice if it's getting easier. Add a gentle incline if available.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w2c',5)"></td><td>Friday</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Full Body A</strong> — Repeat Week 1. Add 5 lbs to deadlift and step-ups if form was solid. 3×12.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="review-box">
+    <h4>🔍 Week 2 Check-In</h4>
+    <ul>
+      <li><input type="checkbox"> Weigh in (morning, fasted) — record starting weight</li>
+      <li><input type="checkbox"> Are you hitting 155g protein daily? If not, add a protein shake</li>
+      <li><input type="checkbox"> Energy levels during training: good / tired / exhausted?</li>
+      <li><input type="checkbox"> Any pain or discomfort in surgical area? If yes, pause abdominal engagement</li>
+      <li><input type="checkbox"> Sleep quality: are you getting 7+ hrs consistently?</li>
+      <li><input type="checkbox"> Hydration: 3L+ daily?</li>
+    </ul>
+  </div>
+
+  <!-- WEEK 3 -->
+  <div class="week-block">
+    <div class="week-label">Week 3 <span class="week-counter" id="w3c">0/5</span></div>
+    <table>
+      <thead><tr><th>✓</th><th>Day</th><th>Type</th><th>Session Detail</th></tr></thead>
+      <tbody id="w3b">
+        <tr><td><input type="checkbox" onchange="tick(this,'w3c',5)"></td><td>Monday</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Lower Body B</strong> — Sumo squat 3×15, Leg extension 3×15, Seated hamstring curl 3×15, Hip abduction machine 3×20, Standing calf raise 3×20. <em class="note">New exercises — start light, prioritize form.</em></td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w3c',5)"></td><td>Tuesday</td><td><span class="badge b-spin">🚴 Spinning</span></td><td><strong>Spin 40 min with Intro Intervals</strong> — 5 warm-up → 20 min steady → 4 × (1 min push at 70–75% / 2 min easy) → 5 cool down.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w3c',5)"></td><td>Wednesday</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Upper Body B</strong> — Cable fly 3×15, Incline dumbbell press 3×15, Wide lat pulldown 3×15, Rear delt fly 3×15, Hammer curl 3×12, Overhead tricep extension 3×12.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w3c',5)"></td><td>Thursday</td><td><span class="badge b-walk">🚶 Walk</span></td><td><strong>Walk 40 min</strong> — Add hills or 3% treadmill incline. Aim for 8,000 steps today total.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w3c',5)"></td><td>Friday</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Full Body B</strong> — Trap bar deadlift or dumbbell deadlift 3×12, Bulgarian split squat (bodyweight or light) 3×10 each, Cable row 3×12, Lateral raise 3×15, Glute kickback 3×15 each.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- WEEK 4 -->
+  <div class="week-block">
+    <div class="week-label">Week 4 <span class="week-counter" id="w4c">0/5</span></div>
+    <table>
+      <thead><tr><th>✓</th><th>Day</th><th>Type</th><th>Session Detail</th></tr></thead>
+      <tbody id="w4b">
+        <tr><td><input type="checkbox" onchange="tick(this,'w4c',5)"></td><td>Monday</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Lower Body B</strong> — Repeat Week 3. Add 5 lbs where comfortable. 3×15. Your last set should feel challenging on the last 2 reps.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w4c',5)"></td><td>Tuesday</td><td><span class="badge b-spin">🚴 Spinning</span></td><td><strong>Spin 45 min</strong> — 5 warm-up → 25 min steady state → 5 × (1 min push / 2 min easy) → 5 cool down. Your best spin of the month.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w4c',5)"></td><td>Wednesday</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Upper Body B</strong> — Repeat Week 3. Add 2–5 lbs. Focus on full contraction at top of every pull and press.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w4c',5)"></td><td>Thursday</td><td><span class="badge b-walk">🚶 Walk</span></td><td><strong>Walk 45 min</strong> — Comfortable pace with incline. 9,000 steps target today. Bring music or a podcast — make it enjoyable.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w4c',5)"></td><td>Friday</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Full Body B</strong> — Repeat Week 3. Note your weights for every exercise — this becomes your Month 2 baseline.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="review-box">
+    <h4>🔍 Month 1 End Review — Complete Before Starting Phase 2</h4>
+    <ul>
+      <li><input type="checkbox"> Weigh in — record weight. Expected loss: 3–6 lbs</li>
+      <li><input type="checkbox"> Take measurements: waist, hips, thigh, arms</li>
+      <li><input type="checkbox"> Review all weights lifted — write new starting weights for Month 2</li>
+      <li><input type="checkbox"> Nutrition audit: average protein hit per day?</li>
+      <li><input type="checkbox"> Any surgical area discomfort resolved?</li>
+      <li><input type="checkbox"> Energy and mood improving?</li>
+      <li><input type="checkbox"> Sleep consistently 7+ hours?</li>
+      <li><input type="checkbox"> Ready to increase intensity for Month 2? (Yes → proceed · No → repeat Week 3–4)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======================== PHASE 2 ======================== -->
+<div id="phase2" class="section p2">
+  <div class="phase-header">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+        <div class="phase-title">Phase 2 — Build</div>
+        <div class="phase-tag">Month 2</div>
+      </div>
+      <div class="phase-desc">Increase load, reduce reps slightly (10–12 range), add spinning intervals, and walk longer. Your body is now conditioned for more. Begin adding progressive overload systematically — add 5 lbs to lower body and 2.5–5 lbs to upper body exercises each week if last set feels manageable. Core: still bracing only.</div>
+    </div>
+  </div>
+
+  <div class="macro-grid">
+    <div class="macro-card"><div class="label">Calories</div><div class="value" style="color:var(--gold)">1,850</div></div>
+    <div class="macro-card"><div class="label">Protein</div><div class="value" style="color:#7db8e8">155g</div></div>
+    <div class="macro-card"><div class="label">Carbs</div><div class="value" style="color:#6fd4a0">175g</div></div>
+    <div class="macro-card"><div class="label">Fats</div><div class="value" style="color:#f0a07a">62g</div></div>
+    <div class="macro-card"><div class="label">Weights Load</div><div class="value" style="color:var(--gold)">Moderate</div><div class="sub">10–12 reps · 3–4 sets</div></div>
+    <div class="macro-card"><div class="label">Spinning</div><div class="value" style="color:#7db8e8">45 min</div><div class="sub">Intervals introduced</div></div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-label">Weeks 5–6 Template <span class="week-counter" id="w5c">0/10</span></div>
+    <table>
+      <thead><tr><th>✓</th><th>Day</th><th>Type</th><th>Session Detail</th></tr></thead>
+      <tbody id="w5b">
+        <tr><td><input type="checkbox" onchange="tick(this,'w5c',10)"></td><td>Mon Wk5</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Lower Body A — Heavier</strong> — Barbell or goblet squat 4×10, Leg press 4×12, Romanian deadlift 4×10, Hip thrust (add weight) 4×12, Calf raise 4×15. <em class="note">+5 lbs from Month 1 end weight.</em></td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w5c',10)"></td><td>Tue Wk5</td><td><span class="badge b-spin">🚴 Spinning</span></td><td><strong>Spin 45 min Pyramid</strong> — 8 warm-up → 1/2/3 min hard at 75–80% / equal recovery → reverse pyramid → 5 cool down.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w5c',10)"></td><td>Wed Wk5</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Upper Body A — Heavier</strong> — Shoulder press 4×10, Lat pulldown 4×10, Seated row 4×10, Dumbbell chest press 4×10, Bicep curl 4×12, Tricep extension 4×12.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w5c',10)"></td><td>Thu Wk5</td><td><span class="badge b-walk">🚶 Walk</span></td><td><strong>Walk 45 min with hills</strong> — 4–5% incline. 9,000–10,000 steps target. Start brisk walking pace (3–3.5 mph).</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w5c',10)"></td><td>Fri Wk5</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Full Body Compound</strong> — Deadlift 4×8, Dumbbell lunge 3×10 each, Pull-up assist or negative 3×8, Push-up (incline if needed) 3×12, Plank hold 3×30 sec (brace only).</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w5c',10)"></td><td>Mon Wk6</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Lower Body B — Heavier</strong> — Sumo squat 4×10, Leg extension 4×12, Hamstring curl 4×12, Hip abduction 4×20, Single-leg press 3×12 each.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w5c',10)"></td><td>Tue Wk6</td><td><span class="badge b-spin">🚴 Spinning</span></td><td><strong>Spin 45 min Tabata</strong> — 8 warm-up → 8 rounds (20 sec all-out / 10 sec rest) × 3 sets with 2 min between sets → 8 cool down.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w5c',10)"></td><td>Wed Wk6</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Upper Body B — Heavier</strong> — Cable fly 4×12, Incline press 4×10, Wide pulldown 4×10, Rear delt fly 4×15, Hammer curl 4×10, Skull crusher 3×12.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w5c',10)"></td><td>Thu Wk6</td><td><span class="badge b-walk">🚶 Walk</span></td><td><strong>Walk/Jog 45 min</strong> — 35 min walk + 2 × 5-min light jog intervals. First running of the plan — easy, slow jog only. Stop if any discomfort.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w5c',10)"></td><td>Fri Wk6</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Full Body Compound</strong> — Deadlift 4×8, Bulgarian split squat 3×10 each, T-bar or cable row 4×10, Dumbbell Arnold press 3×12, Plank 3×35 sec.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="review-box">
+    <h4>🔍 Week 6 Check-In</h4>
+    <ul>
+      <li><input type="checkbox"> Weigh in — record. Expected cumulative loss: 5–10 lbs from start</li>
+      <li><input type="checkbox"> Strength gains: can you lift 10–20% more than Month 1 start?</li>
+      <li><input type="checkbox"> Spinning: can you sustain 80–85% for 1 min without dying?</li>
+      <li><input type="checkbox"> Walking: 45 min easy now? Good — jogging intervals beginning</li>
+      <li><input type="checkbox"> Surgical area: any discomfort during exercise?</li>
+      <li><input type="checkbox"> Nutrition: hitting protein consistently? If not, add protein shake post-workout</li>
+    </ul>
+  </div>
+
+  <div class="week-block">
+    <div class="week-label">Weeks 7–8 Template <span class="week-counter" id="w7c">0/10</span></div>
+    <table>
+      <thead><tr><th>✓</th><th>Day</th><th>Type</th><th>Session Detail</th></tr></thead>
+      <tbody id="w7b">
+        <tr><td><input type="checkbox" onchange="tick(this,'w7c',10)"></td><td>Mon Wk7</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Lower Body A</strong> — Add 5 lbs to all lifts from Week 5. Squat 4×10, Leg press 4×12, RDL 4×10, Hip thrust 4×12, Calf raise 4×15.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w7c',10)"></td><td>Tue Wk7</td><td><span class="badge b-spin">🚴 Spinning</span></td><td><strong>Spin 50 min Endurance</strong> — 10 warm-up → 35 min at 65–70% HR → 5 cool down. Longer steady state to build aerobic engine.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w7c',10)"></td><td>Wed Wk7</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Upper Body A</strong> — Add 2.5–5 lbs to all lifts. 4 sets each. Focus on controlled eccentric (slow lowering phase).</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w7c',10)"></td><td>Thu Wk7</td><td><span class="badge b-walk">🚶 Walk</span> <span class="badge b-run">🏃 Run</span></td><td><strong>Walk/Run 45 min</strong> — 5 min walk → 8 rounds (2 min walk / 1 min jog) → 5 min walk cool down. Jogging pace: easy, can hold a conversation.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w7c',10)"></td><td>Fri Wk7</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Full Body Compound</strong> — Deadlift PR attempt (add 10 lbs), Walking lunge 3×12 each, Assisted pull-up 3×8, Push-up 3×15, Plank 3×40 sec.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w7c',10)"></td><td>Mon Wk8</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Lower Body B</strong> — Add 5 lbs. Sumo squat, Leg extension, Hamstring curl, Hip abduction, Single-leg press. 4 sets each.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w7c',10)"></td><td>Tue Wk8</td><td><span class="badge b-spin">🚴 Spinning</span></td><td><strong>Spin 50 min HIIT</strong> — 10 warm-up → 10 rounds (1 min hard 80–85% / 90 sec easy) → 8 cool down.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w7c',10)"></td><td>Wed Wk8</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Upper Body B</strong> — Add 2.5–5 lbs. 4 sets each. Cable fly, Incline press, Wide pulldown, Rear delt, Hammer curl, Skull crusher.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w7c',10)"></td><td>Thu Wk8</td><td><span class="badge b-walk">🚶 Walk</span> <span class="badge b-run">🏃 Run</span></td><td><strong>Walk/Run 50 min</strong> — 5 min walk → 10 rounds (90 sec walk / 90 sec jog) → 5 min cool down. Jog getting stronger.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w7c',10)"></td><td>Fri Wk8</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Full Body Compound</strong> — Deadlift 4×8, Bulgarian split squat 3×12 each, Row 4×10, Arnold press 3×12, Plank 3×45 sec. <strong>Record all weights — Month 3 baseline.</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="review-box">
+    <h4>🔍 Month 2 End Review — Major Checkpoint</h4>
+    <ul>
+      <li><input type="checkbox"> Weigh in + measurements (waist, hips, thigh, arm)</li>
+      <li><input type="checkbox"> Expected total loss: 8–14 lbs from start. On track?</li>
+      <li><input type="checkbox"> Strength: significant gains in all lifts?</li>
+      <li><input type="checkbox"> Running: can you jog for 90 sec comfortably?</li>
+      <li><input type="checkbox"> Spinning: intervals feel challenging but doable?</li>
+      <li><input type="checkbox"> Surgical area: cleared to begin gentle core work in Month 3?</li>
+      <li><input type="checkbox"> Nutrition: ready to adjust macros for Month 3? (↑ protein, ↓ carbs slightly)</li>
+      <li><input type="checkbox"> Mental state: motivation, mood, energy — rate 1–10</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======================== PHASE 3 ======================== -->
+<div id="phase3" class="section p3">
+  <div class="phase-header">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+        <div class="phase-title">Phase 3 — Strength</div>
+        <div class="phase-tag">Month 3</div>
+      </div>
+      <div class="phase-desc">Heavier compound lifts. Drop reps to 8–10. Begin gentle core activation (dead bugs, bird dogs — no crunches yet). Running intervals get longer. Spinning hits peak fat-burning HIIT protocols. This is where visible body composition changes accelerate. Macros shift: calories drop to 1,800, protein increases to 165g.</div>
+    </div>
+  </div>
+
+  <div class="macro-grid">
+    <div class="macro-card"><div class="label">Calories</div><div class="value" style="color:var(--gold)">1,800</div><div class="sub">↓ 50 kcal</div></div>
+    <div class="macro-card"><div class="label">Protein</div><div class="value" style="color:#7db8e8">165g</div><div class="sub">↑ 10g</div></div>
+    <div class="macro-card"><div class="label">Carbs</div><div class="value" style="color:#6fd4a0">155g</div><div class="sub">↓ 20g</div></div>
+    <div class="macro-card"><div class="label">Fats</div><div class="value" style="color:#f0a07a">58g</div></div>
+    <div class="macro-card"><div class="label">Weights Load</div><div class="value" style="color:var(--red)">Heavy</div><div class="sub">8–10 reps · 4 sets</div></div>
+    <div class="macro-card"><div class="label">Core Work</div><div class="value" style="color:#6fd4a0">Begins</div><div class="sub">Gentle activation only</div></div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-label">Weeks 9–12 Template <span class="week-counter" id="w9c">0/20</span></div>
+    <table>
+      <thead><tr><th>✓</th><th>Day</th><th>Type</th><th>Session Detail</th></tr></thead>
+      <tbody id="w9b">
+        <tr><td><input type="checkbox" onchange="tick(this,'w9c',20)"></td><td>Mon (Each Wk)</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Lower Body — Strength</strong> — Barbell squat 4×8, Leg press 4×10 (heavier), Barbell RDL 4×8, Weighted hip thrust 4×10, Leg curl 3×12, Calf raise 4×15. <em class="note">Add 5 lbs every week to squats and deadlifts.</em></td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w9c',20)"></td><td>Tue (Each Wk)</td><td><span class="badge b-spin">🚴 Spinning</span></td><td><strong>Spin 50 min Peak HIIT</strong> — 10 warm-up → 12 rounds (1 min at 85–90% / 1 min recovery) → 8 cool down. This is the hardest spinning yet — push it.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w9c',20)"></td><td>Wed (Each Wk)</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Upper Body — Strength</strong> — Barbell or DB bench press 4×8, Bent-over row 4×8, Overhead press 4×8, Pull-up assist 4×6–8, Weighted curl 4×10, Close-grip press 3×10. <strong>Core:</strong> Dead bug 3×10 each side, Bird dog 3×10 each side.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w9c',20)"></td><td>Thu (Each Wk)</td><td><span class="badge b-run">🏃 Run</span></td><td><strong>Run/Walk 45 min</strong> — Week 9: 1 min run/2 min walk × 10. Week 10: 2 min run/1 min walk × 10. Week 11: 3 min run/1 min walk × 8. Week 12: 5 min run/1 min walk × 6.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w9c',20)"></td><td>Fri (Each Wk)</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Full Body Power</strong> — Deadlift 4×6 (heavy), Walking lunge weighted 3×12 each, Chest-supported row 4×8, DB shoulder press 4×8, Plank 3×45–60 sec, Dead bug 3×10. <em class="note">Rest 90–120 sec between strength sets.</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="review-box">
+    <h4>🔍 Week 10 Mid-Phase Check-In</h4>
+    <ul>
+      <li><input type="checkbox"> Weigh in — cumulative loss 12–18 lbs from start expected</li>
+      <li><input type="checkbox"> Core activation: any discomfort? If yes, stop and consult doctor</li>
+      <li><input type="checkbox"> Running improving? Can you sustain 2 min jog without stopping?</li>
+      <li><input type="checkbox"> Strength: are you lifting heavier than Month 1 across all lifts?</li>
+      <li><input type="checkbox"> New macro (165g protein) — hitting it consistently?</li>
+      <li><input type="checkbox"> Body composition visible changes (clothes fitting differently)?</li>
+    </ul>
+  </div>
+
+  <div class="review-box">
+    <h4>🔍 Month 3 End — Halfway Point Full Assessment</h4>
+    <ul>
+      <li><input type="checkbox"> Full measurements: weight, waist, hips, thigh, arms, chest</li>
+      <li><input type="checkbox"> Progress photos (front, side, back) — compare to Month 1</li>
+      <li><input type="checkbox"> Strength benchmarks: squat, deadlift, press max weights achieved</li>
+      <li><input type="checkbox"> Running: can you run 5 min continuously?</li>
+      <li><input type="checkbox"> Core: dead bug and bird dog pain-free?</li>
+      <li><input type="checkbox"> Energy levels at training: rate 1–10</li>
+      <li><input type="checkbox"> Sleep quality: rate 1–10</li>
+      <li><input type="checkbox"> Adjust calories to 1,800 confirmed for Months 4–6?</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======================== PHASE 4 ======================== -->
+<div id="phase4" class="section p4">
+  <div class="phase-header">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+        <div class="phase-title">Phase 4 — Peak Burn</div>
+        <div class="phase-tag">Month 4</div>
+      </div>
+      <div class="phase-desc">Maximum caloric output. Advanced compound lifts, full core work (planks, modified crunches), sustained running intervals (you may be running 10+ minutes continuously). This is the phase where your body composition changes most dramatically. Stay consistent — the compound effect is working.</div>
+    </div>
+  </div>
+
+  <div class="macro-grid">
+    <div class="macro-card"><div class="label">Calories</div><div class="value" style="color:var(--gold)">1,800</div></div>
+    <div class="macro-card"><div class="label">Protein</div><div class="value" style="color:#7db8e8">165g</div></div>
+    <div class="macro-card"><div class="label">Carbs</div><div class="value" style="color:#6fd4a0">155g</div></div>
+    <div class="macro-card"><div class="label">Fats</div><div class="value" style="color:#f0a07a">58g</div></div>
+    <div class="macro-card"><div class="label">Weights Load</div><div class="value" style="color:var(--green)">Heavy+</div><div class="sub">6–8 reps · 4–5 sets</div></div>
+    <div class="macro-card"><div class="label">Core Work</div><div class="value" style="color:#6fd4a0">Full</div><div class="sub">Planks, modified crunches</div></div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-label">Weeks 13–16 Template <span class="week-counter" id="w13c">0/20</span></div>
+    <table>
+      <thead><tr><th>✓</th><th>Day</th><th>Type</th><th>Session Detail</th></tr></thead>
+      <tbody id="w13b">
+        <tr><td><input type="checkbox" onchange="tick(this,'w13c',20)"></td><td>Mon (Each Wk)</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Lower Body — Power</strong> — Back squat 5×6, Romanian deadlift 4×8, Hip thrust (heavy) 4×10, Leg press (heavy) 4×8, Leg curl 3×10, Single-leg press 3×10 each. Rest 2 min between sets.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w13c',20)"></td><td>Tue (Each Wk)</td><td><span class="badge b-spin">🚴 Spinning</span></td><td><strong>Spin 55 min Advanced HIIT</strong> — 10 warm-up → Hill climbs: 3 min build resistance (add every 30 sec) then 2 min recovery × 6 rounds → 5 cool down.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w13c',20)"></td><td>Wed (Each Wk)</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Upper Body — Power</strong> — Bench press 5×6, Weighted pull-up or assist 4×6, Barbell row 4×8, Military press 4×8, Incline fly 3×12. <strong>Core:</strong> Plank 3×60 sec, Modified crunch 3×15, Dead bug 3×12.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w13c',20)"></td><td>Thu (Each Wk)</td><td><span class="badge b-run">🏃 Run</span></td><td><strong>Run 40 min</strong> — Week 13: 8 min run/2 min walk × 3. Week 14: 10 min run/1 min walk × 3. Week 15: 15 min run/2 min walk × 2. Week 16: 20 min continuous run + 15 min walk.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w13c',20)"></td><td>Fri (Each Wk)</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Full Body Metabolic</strong> — 4 rounds: Deadlift 6 reps → DB lunge 10 each → Push-up 12 → Renegade row 8 each → Plank 45 sec. Rest 90 sec between rounds. High intensity, minimal rest within circuit.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="review-box">
+    <h4>🔍 Month 4 End Review</h4>
+    <ul>
+      <li><input type="checkbox"> Weigh in + measurements — expected 18–25 lbs lost from start</li>
+      <li><input type="checkbox"> Can you run 20 min continuously? If yes — incredible milestone</li>
+      <li><input type="checkbox"> Full core work: no pain, good activation?</li>
+      <li><input type="checkbox"> Strength: significantly above Month 1 across all lifts?</li>
+      <li><input type="checkbox"> Progress photos</li>
+      <li><input type="checkbox"> Adjust macros for Phase 5: drop to 1,750 kcal, increase protein to 175g</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======================== PHASE 5 ======================== -->
+<div id="phase5" class="section p5">
+  <div class="phase-header">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+        <div class="phase-title">Phase 5 — Recomposition</div>
+        <div class="phase-tag">Month 5</div>
+      </div>
+      <div class="phase-desc">Body sculpting phase. Macros shift to higher protein and lower carbs to maximize recomposition (simultaneous fat loss + muscle gain). Training becomes more strategic — supersets, drop sets, tempo work. Running may include your first 5K attempt. You will look and feel dramatically different from Month 1.</div>
+    </div>
+  </div>
+
+  <div class="macro-grid">
+    <div class="macro-card"><div class="label">Calories</div><div class="value" style="color:var(--gold)">1,750</div><div class="sub">↓ 50 kcal</div></div>
+    <div class="macro-card"><div class="label">Protein</div><div class="value" style="color:#7db8e8">175g</div><div class="sub">↑ 10g</div></div>
+    <div class="macro-card"><div class="label">Carbs</div><div class="value" style="color:#6fd4a0">140g</div><div class="sub">↓ 15g</div></div>
+    <div class="macro-card"><div class="label">Fats</div><div class="value" style="color:#f0a07a">55g</div></div>
+    <div class="macro-card"><div class="label">Weights</div><div class="value" style="color:var(--purple)">Superset</div><div class="sub">8–12 reps · 4 sets</div></div>
+    <div class="macro-card"><div class="label">Running</div><div class="value" style="color:#f0a07a">5K prep</div><div class="sub">Aim for 30 min run</div></div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-label">Weeks 17–20 Template <span class="week-counter" id="w17c">0/20</span></div>
+    <table>
+      <thead><tr><th>✓</th><th>Day</th><th>Type</th><th>Session Detail</th></tr></thead>
+      <tbody id="w17b">
+        <tr><td><input type="checkbox" onchange="tick(this,'w17c',20)"></td><td>Mon (Each Wk)</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Lower Body Superset</strong> — SS1: Squat 4×10 + Hip thrust 4×12. SS2: RDL 4×10 + Leg curl 4×12. SS3: Leg press 3×15 + Calf raise 3×20. Rest 60 sec between supersets only.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w17c',20)"></td><td>Tue (Each Wk)</td><td><span class="badge b-spin">🚴 Spinning</span></td><td><strong>Spin 55 min Peak Protocol</strong> — 10 warm-up → 20 min steady at 70% → 8 × (1 min sprint 90% / 1 min recovery) → 10 min steady → 5 cool down.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w17c',20)"></td><td>Wed (Each Wk)</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Upper Body Superset</strong> — SS1: Bench press 4×8 + Row 4×8. SS2: Shoulder press 4×10 + Lat pulldown 4×10. SS3: Bicep curl 3×12 + Tricep dip 3×12. Core: Full plank 3×60 sec, Bicycle crunch 3×20, Dead bug 3×12.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w17c',20)"></td><td>Thu (Each Wk)</td><td><span class="badge b-run">🏃 Run</span></td><td><strong>Run 45 min</strong> — Week 17: 20 min run + 20 min walk. Week 18: 25 min run + 15 min walk. Week 19: 30 min run + 10 min walk. Week 20: 35 min run (5K pace practice).</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w17c',20)"></td><td>Fri (Each Wk)</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Full Body + Core Focus</strong> — Deadlift 4×6 heavy, Split squat 3×10 each, Pull-up (assisted or full) 4×8, Push-up variations 3×15, Ab circuit: plank 60 sec + bicycle crunch 20 + leg raise 15 + mountain climber 30 sec.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="review-box">
+    <h4>🔍 Month 5 End Review</h4>
+    <ul>
+      <li><input type="checkbox"> Weigh in + full measurements</li>
+      <li><input type="checkbox"> Expected: 22–30 lbs lost from start</li>
+      <li><input type="checkbox"> Can you run 30+ min continuously? Prepare for a 5K attempt in Month 6</li>
+      <li><input type="checkbox"> Supersets: keeping intensity, short rest, maintaining form?</li>
+      <li><input type="checkbox"> Progress photos — this one will be remarkable compared to Day 1</li>
+      <li><input type="checkbox"> Energy: better than ever? This is the recomposition effect</li>
+      <li><input type="checkbox"> Plan your Month 6 goals: what does success look like?</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======================== PHASE 6 ======================== -->
+<div id="phase6" class="section p6">
+  <div class="phase-header">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+        <div class="phase-title">Phase 6 — Performance</div>
+        <div class="phase-tag">Month 6</div>
+      </div>
+      <div class="phase-desc">Test everything. Run your first 5K. Hit personal records on all lifts. Spin at your maximum. This is not just a fitness month — it's a celebration of 6 months of discipline. The plan here is intentionally flexible: you know your body now. Push where you can, maintain what you've built, and plan what comes next.</div>
+    </div>
+  </div>
+
+  <div class="macro-grid">
+    <div class="macro-card"><div class="label">Calories</div><div class="value" style="color:var(--gold)">1,750</div></div>
+    <div class="macro-card"><div class="label">Protein</div><div class="value" style="color:#7db8e8">175g</div></div>
+    <div class="macro-card"><div class="label">Carbs</div><div class="value" style="color:#6fd4a0">140g</div></div>
+    <div class="macro-card"><div class="label">Fats</div><div class="value" style="color:#f0a07a">55g</div></div>
+    <div class="macro-card"><div class="label">Goal</div><div class="value" style="color:var(--orange)">PRs</div><div class="sub">Personal records</div></div>
+    <div class="macro-card"><div class="label">Milestone</div><div class="value" style="color:#6fd4a0">5K</div><div class="sub">First race / run</div></div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-label">Weeks 21–24 Template <span class="week-counter" id="w21c">0/20</span></div>
+    <table>
+      <thead><tr><th>✓</th><th>Day</th><th>Type</th><th>Session Detail</th></tr></thead>
+      <tbody id="w21b">
+        <tr><td><input type="checkbox" onchange="tick(this,'w21c',20)"></td><td>Mon (Each Wk)</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Lower Body — PR Week</strong> — Test your squat max (3 rep max). Deadlift 3RM. Hip thrust 3RM. Then complete: 3×10 each at 75% of max. Record everything.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w21c',20)"></td><td>Tue (Each Wk)</td><td><span class="badge b-spin">🚴 Spinning</span></td><td><strong>Spin 60 min — Your Best</strong> — 10 warm-up → 40 min mixed (15 min steady, 10 × 1-min sprints, 15 min steady) → 10 cool down. Full hour. You've earned every minute of this.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w21c',20)"></td><td>Wed (Each Wk)</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Upper Body — PR Week</strong> — Bench press 3RM test. Pull-up (weighted or bodyweight) 3RM. Overhead press 3RM. Then 3×10 at 75%. Full core circuit: 4 rounds of plank 60 sec + bicycle 20 + leg raise 15.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w21c',20)"></td><td>Thu (Each Wk)</td><td><span class="badge b-run">🏃 Run</span></td><td><strong>Run — 5K Build</strong> — Week 21: 35 min run. Week 22: 38 min run. Week 23: 5K time trial (3.1 miles, your pace). Week 24: Celebrate — easy 30 min run, reflect on the journey.</td></tr>
+        <tr><td><input type="checkbox" onchange="tick(this,'w21c',20)"></td><td>Fri (Each Wk)</td><td><span class="badge b-weights">💪 Weights</span></td><td><strong>Full Body Best Effort</strong> — No structure. Pick your favorite lifts. Go hard. Trust your body — it knows what to do now. This is yours.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="review-box">
+    <h4>🏆 Month 6 Final Assessment — Your Transformation</h4>
+    <ul>
+      <li><input type="checkbox"> Final weigh-in + full measurements</li>
+      <li><input type="checkbox"> Expected total loss: 25–35 lbs</li>
+      <li><input type="checkbox"> Final progress photos — front, side, back</li>
+      <li><input type="checkbox"> Record all PR lifts: squat, deadlift, bench, overhead press</li>
+      <li><input type="checkbox"> 5K completed — record your time</li>
+      <li><input type="checkbox"> Spinning: 60 min session completed</li>
+      <li><input type="checkbox"> Overall energy, mood, sleep — rate 1–10 vs Month 1</li>
+      <li><input type="checkbox"> What changed beyond the physical? Write it down.</li>
+      <li><input type="checkbox"> Plan your next 6 months — you're not done, you're just beginning.</li>
+    </ul>
+  </div>
+</div>
+
+</div><!-- end main -->
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function tick(cb, counterId, total) {
+  const row = cb.closest('tr');
+  row.classList.toggle('done', cb.checked);
+  updateCounter(counterId, total);
+  updateOverall();
+  save();
+}
+
+function updateCounter(id, total) {
+  const tbody = document.getElementById(id.replace('c','b'));
+  if (!tbody) return;
+  const done = tbody.querySelectorAll('input:checked').length;
+  const el = document.getElementById(id);
+  if (el) el.textContent = done + '/' + total;
+}
+
+function updateOverall() {
+  const all = document.querySelectorAll('tbody input[type=checkbox]');
+  const done = document.querySelectorAll('tbody input[type=checkbox]:checked').length;
+  const pct = Math.round((done / all.length) * 100);
+  document.getElementById('overall-fill').style.width = pct + '%';
+  document.getElementById('overall-label').textContent = done + ' / ' + all.length + ' sessions complete';
+}
+
+function save() {
+  const state = [];
+  document.querySelectorAll('input[type=checkbox]').forEach(cb => state.push(cb.checked));
+  try { localStorage.setItem('transformPlan', JSON.stringify(state)); } catch(e){}
+}
+
+function load() {
+  try {
+    const saved = localStorage.getItem('transformPlan');
+    if (!saved) return;
+    const state = JSON.parse(saved);
+    document.querySelectorAll('input[type=checkbox]').forEach((cb, i) => {
+      if (state[i]) {
+        cb.checked = true;
+        const row = cb.closest('tr');
+        if (row) row.classList.add('done');
+      }
+    });
+  } catch(e){}
+  // update all counters
+  [['w1c',5],['w2c',5],['w3c',5],['w4c',5],['w5c',10],['w7c',10],
+   ['w9c',20],['w13c',20],['w17c',20],['w21c',20]].forEach(([id,total]) => updateCounter(id, total));
+  updateOverall();
+}
+
+load();
+</script>
+</body>
+</html>
